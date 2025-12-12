@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
     <header>
@@ -11,6 +12,7 @@
     </header>
     <main>
         <p class="content-class">{{ content }}</p>
+        <button onclick="testScript()">Test Script</button>
     </main>
     <footer>
         <p class="footer-class">{{ footer }}</p>

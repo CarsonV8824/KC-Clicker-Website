@@ -1,5 +1,5 @@
 function testScript() {
 
-console.log("Script loaded successfully.");
+    console.log("Script loaded successfully.");
 
 }
