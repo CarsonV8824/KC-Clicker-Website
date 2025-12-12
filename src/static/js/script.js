@@ -19,17 +19,16 @@ main_dice_button.addEventListener('click', () => {
 });
 
 //getting dice count from python
-function updateDiceCount() {
 
-    fetch('/get_dice_info_from_py')
-    .then(response => response.json())
+const diceCountSpan = document.getElementById('dice-count-span');
+
+function updateDiceCount() {
+  fetch('/get_dice_info_from_py')
+    .then(res => res.json())
     .then(data => {
-        const diceCountElement = document.getElementById('dice-count');
-        diceCountElement.textContent = `Dice: ${data.count} (User: ${data.username})`;
+      diceCountSpan.textContent = `${data.count} (User: ${data.username})`;
     })
-    .catch((error) => {
-        console.error('Error fetching dice count:', error);
-    });
+    .catch(err => console.error('Error fetching dice count:', err));
 }
 
 setInterval(updateDiceCount, 5000); // Update every 5 seconds
