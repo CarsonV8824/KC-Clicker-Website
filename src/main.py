@@ -34,9 +34,6 @@ def main():
     except Exception:
         game_state.game_state = game_state.default_game_state()
 
-    with open("tests/test.json", "w") as f:
-        json.dump(None, f, indent=4)
-
     title = "KC-Clicker-Website"
     header = "Welcome to KC-Clicker-Website"
     footer = "© 2025 Carson V"
@@ -88,7 +85,7 @@ def get_39th_street_button_click_from_js():
         producer["per_sec"] = producer.get("per_sec", 0) + 1
         # Recompute money_per_sec from producers or increment directly
         game_state.game_state["money_per_sec"] += 1
-        producer["cost"] = int(cost * 1.15)
+        producer["cost"] = int(round((cost * 1.15)))
 
     return jsonify({"status": "success", "message": "39th Street button click received successfully."})
 
@@ -133,10 +130,11 @@ def save_on_close():
     )
 
     #--testing json dump--#
-    
+    """
     with open("tests/test.json", "a") as f:
         json.dump((game_state.game_state), f)
-
+    """
+        
     return ("", 204)
 
 #---Running The App---#
