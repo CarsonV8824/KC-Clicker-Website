@@ -30,7 +30,7 @@ def main():
     
         game_state.game_state = previous_data[3]
     except Exception:
-        pass
+        game_state.game_state = game_state.default_game_state()
     
     title = "KC-Clicker-Website"
     header = "Welcome to KC-Clicker-Website"

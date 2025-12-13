@@ -8,3 +8,5 @@ class Game_State:
                 "39th_street": {"39th street owned": 0, "$PerSec": 0, "cost": 100}
                 }
             }
+    def default_game_state(self):
+        return self.game_state.copy()
