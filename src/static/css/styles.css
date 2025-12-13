@@ -3,6 +3,17 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(175, 175, 175);
+    min-height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.main-button-box{
+    border:black solid 2px;
+    padding:10px;
+    text-align:left;
+    background-color: rgb(200, 200, 200);
+    margin: 20px;
 }
 
 .header-dice-button-class {
@@ -26,6 +37,14 @@ body {
     font-size: 18px;
     margin-top: 20px;
     color: black;
+}
+
+.Button-container-class{
+    border:black solid 2px;
+    padding:10px;
+    text-align:left;
+    background-color: rgb(200, 200, 200);
+    margin: 20px;
 }
 
 .thirty-ninth-street-button-class {
