@@ -44,7 +44,7 @@ window.addEventListener("beforeunload", () => {
   navigator.sendBeacon("/save-on-close", payload);
 });
 
-//39th Street Button
+//sending 39th Street Button to python
 const thirtyNinthStreetButton = document.getElementById('39th_street_button');
 
 thirtyNinthStreetButton.addEventListener('click', () => {
