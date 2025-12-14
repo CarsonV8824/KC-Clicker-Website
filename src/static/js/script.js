@@ -144,7 +144,7 @@ setInterval(() => {
   .catch((error) => {
     console.error('Error updating all data:', error);
   });
-}, 250);
+}, 400);
 
 //Saving Data on Window Close
 

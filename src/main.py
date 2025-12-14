@@ -138,6 +138,7 @@ money_generation = Money_Generation(game_state)
 
 @app.route('/get_money_generation_from_py', methods=['GET'])
 def get_money_generation_from_py():
+    money_generation.generate_money()
     return jsonify({"money": game_state.game_state["money"]})
 
 #---Closing app---#

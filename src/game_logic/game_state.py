@@ -2,7 +2,7 @@ class Game_State:
     def __init__(self):
         self.game_state = {
             "username": "guest",
-            "money": 10000,
+            "money": 0,
             "money_per_sec": 0,
             "producers": {
                 "39th_street": {"owned": 0, "$PerSec": 1, "cost": 100},
