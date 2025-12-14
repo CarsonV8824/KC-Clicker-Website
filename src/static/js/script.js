@@ -10,9 +10,6 @@ main_dice_button.addEventListener('click', () => {
         body: JSON.stringify({ "click": true })
     })
     .then(response => response.json())
-    .then(data => {
-        console.log('Dice click registered:', data);
-    })
     .catch((error) => {
         console.error('Error:', error);
     });
@@ -70,9 +67,6 @@ thirtyNinthStreetButton.addEventListener('click', () => {
         body: JSON.stringify({ "buy": true })
     })
     .then(response => response.json())
-    .then(data => {
-        console.log('39th Street purchase attempt:', data);
-    })
     .catch((error) => {
         console.error('Error:', error);
     });
@@ -105,9 +99,6 @@ thePaseoButton.addEventListener('click', () => {
         body: JSON.stringify({ "buy": true })
     })
     .then(response => response.json())
-    .then(data => {
-        console.log('The Paseo purchase attempt:', data);
-    })
     .catch((error) => {
         console.error('Error:', error);
     });
@@ -138,9 +129,6 @@ setInterval(() => {
     updateThirtyNinthStreetInfo(),
     updateThePaseoInfo()
   ])
-  .then(() => {
-    console.log('All data updated.');
-  })
   .catch((error) => {
     console.error('Error updating all data:', error);
   });
@@ -148,11 +136,21 @@ setInterval(() => {
 
 //Saving Data on Window Close
 
-window.addEventListener("beforeunload", () => {
+window.addEventListener("beforeunload", (event) => {
   const payload = JSON.stringify({
     username: "test",
     email: "test@example.com"
   });
 
-  navigator.sendBeacon("/save-on-close", payload);
+  // Use fetch with keepalive to ensure request completes before unload
+  fetch("/save-on-close", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: payload,
+    keepalive: true
+  }).catch((error) => {
+    console.error('Error saving on close:', error);
+  });
 });

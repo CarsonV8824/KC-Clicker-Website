@@ -31,6 +31,10 @@ def main():
     try:
         previous_data = load_data_store()
         game_state.game_state = previous_data[3]
+        producers = game_state.game_state["producers"]
+        game_state.game_state["money_per_sec"] = sum(
+            p.get("owned", 0) * p.get("$PerSec", 0) for p in producers.values()
+        )
     except Exception:
         game_state.game_state = game_state.default_game_state()
     
@@ -145,7 +149,7 @@ def get_money_generation_from_py():
 
 @app.post("/save-on-close")
 def save_on_close():
-    
+    # Handle JSON data from fetch
     data = request.get_json(silent=True) or {}
 
     username = data.get("username", "guest")
@@ -158,12 +162,6 @@ def save_on_close():
         email=email,
         stats=stats
     )
-
-    #--testing json dump--#
-    """
-    with open("tests/test.json", "a") as f:
-        json.dump((game_state.game_state), f)
-    """
         
     return ("", 204)
 
