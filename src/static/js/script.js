@@ -31,9 +31,6 @@ async function updateDiceCount() {
     .catch(err => console.error('Error fetching dice count:', err));
 }
 
-//setInterval(updateDiceCount, 1000); 
-//updateDiceCount(); 
-
 //getting money per second from python
 
 const moneyPerSecSpan = document.getElementById('money-per-sec-span');
@@ -46,9 +43,6 @@ async function updateMoneyPerSec() {
     })
     .catch(err => console.error('Error fetching money per second:', err));
 }
-
-//setInterval(updateMoneyPerSec, 100);
-//updateMoneyPerSec();
 
 //getting money generation from python
 
@@ -63,10 +57,8 @@ async function updateMoneyGeneration() {
     .catch(err => console.error('Error fetching money generation:', err));
 }
 
-//setInterval(updateMoneyGeneration, 100);
-//updateMoneyGeneration();
-
 //sending 39th Street Button to python
+
 const thirtyNinthStreetButton = document.getElementById('39th_street_button');
 
 thirtyNinthStreetButton.addEventListener('click', () => {
@@ -99,9 +91,6 @@ async function updateThirtyNinthStreetInfo() {
     )
     .catch(err => console.error('Error fetching 39th Street info:', err));
 }
-
-//setInterval(updateThirtyNinthStreetInfo, 100);
-//updateThirtyNinthStreetInfo();
 
 //sending The Paseo Button to python
 
@@ -138,9 +127,6 @@ async function updateThePaseoInfo() {
     .catch(err => console.error('Error fetching The Paseo info:', err));
 }
 
-//setInterval(updateThePaseoInfo, 100);
-//updateThePaseoInfo();
-
 // send data back at one time
 // use mod operater if you need different intervals for each
 
@@ -161,6 +147,7 @@ setInterval(() => {
 }, 250);
 
 //Saving Data on Window Close
+
 window.addEventListener("beforeunload", () => {
   const payload = JSON.stringify({
     username: "test",
